@@ -18,7 +18,6 @@ class Supplier(Base):
     id = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(String, unique=True)
 
-    products = relationship('Product', back_populates='supplier')
 
 class Product(Base):
     """
