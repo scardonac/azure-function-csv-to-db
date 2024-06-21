@@ -10,6 +10,8 @@ This project is an Azure Function that processes CSV files containing product an
 
 ## Table of Contents
 - [Introduction](#introduction)
+- [CSV File Structure](#csv-file-structure)
+- [Database Structure](#database-structure)
 - [Project Structure](#project-structure)
 - [Requirements](#requirements)
 - [Setup](#setup)
@@ -24,6 +26,34 @@ This project is an Azure Function that processes CSV files containing product an
 Managing product and supplier data is crucial for any business that relies on accurate and timely information. This project provides a scalable and efficient solution using Azure Functions to automatically process and update product and supplier information from CSV files. 
 
 When a new CSV file is uploaded to an Azure Blob Storage container, the function is triggered to process the file. It reads the product and supplier details, checks if the products already exist in the PostgreSQL database, and updates or inserts the records accordingly. This automation helps maintain data integrity and reduces manual efforts.
+
+## CSV File Structure
+The CSV file has the following column structure:
+
+1. **Supplier**: Name of the product supplier.
+2. **Product Code**: Unique code of the product.
+3. **Product Name**: Name of the product.
+4. **Category**: Category to which the product belongs.
+5. **Price**: Price of the product.
+6. **Stock**: Quantity of units available in stock.
+
+## Database Structure
+The relational database has the following tables and fields to store the CSV file information:
+
+1. **Products Table (`products`)**:
+   - `id` (Primary Key): Unique identifier of the product.
+   - `product_code`: Unique product code.
+   - `name`: Product name.
+   - `category`: Product category.
+   - `price`: Product price.
+   - `stock`: Quantity of units available in stock.
+   - `supplier_id` (Foreign Key): ID of the supplier providing the product.
+
+2. **Suppliers Table (`suppliers`)**:
+   - `id` (Primary Key): Unique identifier of the supplier.
+   - `name`: Supplier name.
+
+These structures allow storing product and supplier information in an organized and relational manner in the database. The relationship between the tables is established through the `supplier_id` key in the `products` table, which references the corresponding supplier in the `suppliers` table. This facilitates queries and operations related to product and supplier management within the system.
 
 ## Project Structure
 ```
