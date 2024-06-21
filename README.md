@@ -1,4 +1,4 @@
-# Azure Function - Product and Supplier Management 🚀
+# Trigger Azure Functions on blob containers 🚀
 
 [![Python](https://img.shields.io/badge/Python-3.11%2B-blue)](https://www.python.org/)
 
