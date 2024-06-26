@@ -86,7 +86,7 @@ These structures allow storing product and supplier information in an organized 
 
     ```sh
     git clone https://github.com/scardonac/azure-function-csv-to-db.git
-    cd azure-function-product-management
+    cd azure-function-csv-to-db
     ```
 
 2. **Create and activate a virtual environment**
